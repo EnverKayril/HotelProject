@@ -1,0 +1,30 @@
+﻿@model List<ResultGuestDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Müşteri Adı</th>
+        <th>Müşteri Soyadı</th>
+        <th>Şehir</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        count++;
+        <tr>
+            <td>@count</td>
+            <td>@item.Name</td>
+            <td>@item.Surname</td>
+            <td>@item.City</td>
+            <td><a asp-controller="Guest" asp-action="DeleteGuest" asp-route-id="@item.GuestId" class="btn mb-1 btn-rounded btn-outline-danger">Sil</a></td>
+            <td><a asp-controller="Guest" asp-action="UpdateGuest" asp-route-id="@item.GuestId" class="btn mb-1 btn-rounded btn-outline-primary">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a asp-controller="Guest" asp-action="AddGuest" class="btn mb-1 btn-rounded btn-outline-info">Yeni Müşteri Girişi</a>

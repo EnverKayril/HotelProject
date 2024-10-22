@@ -33,6 +33,18 @@ namespace HotelProject.WebApi
             builder.Services.AddScoped<IAboutDal, EfAboutDal>();
             builder.Services.AddScoped<IAboutService, AboutManager>();
 
+            builder.Services.AddScoped<IBookingDal, EfBookingDal>();
+            builder.Services.AddScoped<IBookingService, BookingManager>();
+
+            builder.Services.AddScoped<IContactDal, EfContactDal>();
+            builder.Services.AddScoped<IContactService, ContactManager>();
+
+            builder.Services.AddScoped<IGuestDal, EfGuestDal>();
+            builder.Services.AddScoped<IGuestService, GuestManager>();
+
+            builder.Services.AddScoped<ISendMessageDal, EfSendMessageDal>();
+            builder.Services.AddScoped<ISendMessageService, SendMessageMAnager>();
+
             builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
 
             builder.Services.AddCors(option =>
